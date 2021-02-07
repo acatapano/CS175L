@@ -52,11 +52,7 @@ public class houseCode {
 		sqFttopaint = ((4*(houseLength*houseWidth)) + (houseLength*(houseHeight - houseWidth))) - ((windowNumber*(windowLength*windowWidth)) + (doorNumber*(doorLength*doorWidth)));
 		totalCost = sqFttopaint*costPersqft;
 		
-		System.out.print("Total cost to paint ");
-		System.out.print(sqFttopaint);
-		System.out.print(" sqft: ");
-		System.out.println(totalCost);
-		
+		System.out.print("Total cost to paint " + sqFttopaint + " sqft: $" + totalCost);
 	}
 
 }
