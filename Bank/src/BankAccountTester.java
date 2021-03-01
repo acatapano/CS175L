@@ -6,20 +6,55 @@ public class BankAccountTester {
 		
 		Scanner in = new Scanner(System.in);
 		
-		System.out.print("What is your starting balance?");
+		//Bank Account Set Up:
+		System.out.println("Enter amount to start the account: ");
 		double startBal = in.nextDouble();
+		System.out.println("Enter the interest rate for this account: ");
+		double interestPct = in.nextDouble();
 		
-		BankAccount myBankAccount = new BankAccount(startBal);
+		BankAccount myBankAccount = new BankAccount(startBal, interestPct);
 		
-		System.out.println("How much money would you like to withdraw?");
-		double withDrawAmount = in.nextDouble();
-		myBankAccount.withdraw(withDrawAmount);
-		
-		System.out.println("How much money would you like to deposit?");
+		//Deposit:
+		System.out.println("Enter amount to deposit in the account: ");
 		double depositAmount = in.nextDouble();
 		myBankAccount.deposit(depositAmount);
 		
-		System.out.println("Current Ballance: $" + myBankAccount.getBalance());
+		//Withdraw:
+		double accountBal = myBankAccount.getBalance();
+		
+		System.out.println("Enter amount to withdraw from the account: ");
+		double withDrawAmount = in.nextDouble();
+		myBankAccount.withdraw(withDrawAmount);
+		
+		double withdrawBalance = myBankAccount.getBalance();
+		
+		if(withdrawBalance == accountBal) 
+		{
+			
+			System.out.println("Enter amount to withdraw from the account: ");
+			withDrawAmount = in.nextDouble();
+			myBankAccount.withdraw(withDrawAmount);
+			
+		}
+		
+		//Interest:
+		System.out.println("If you want me to generate interest, enter 'Yes': ");
+		String answer = in.next();
+		
+		if(answer.compareTo("Yes") == 0) 
+		{
+			
+			myBankAccount.calcInterest();
+			System.out.println("The account balance is: $" + myBankAccount.getBalance());
+			
+		}
+		
+		else 
+		{
+			
+			System.out.println("The account balance is: $" + myBankAccount.getBalance());
+			
+		}
 		
 	}
 
