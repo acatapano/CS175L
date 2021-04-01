@@ -15,13 +15,22 @@ public class BankAccount
    */
    public BankAccount(double startBal, double interestPct)
    {
-	   
+	  
       balance = startBal;
       interestRate = interestPct;
-      
+       
       System.out.println("Created new account with $" + balance + " balance and interest rate " + interestRate + ".");
+      
    }
-
+   
+   public void resetBal(double startBal, double interestPct)
+   {
+	   
+	   balance = startBal;
+	   interestRate = interestPct;
+	   
+   }
+   
    /**
       Makes a deposit into this account.
       @param amount the amount of the deposit
